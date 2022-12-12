@@ -1,0 +1,1418 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>TIC-TAC-CODE</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<style>
+		.neonText {
+			color: #fff;
+			text-shadow:
+				0 0 7px #fff,
+				0 0 10px #fff,
+				0 0 21px #fff,
+				0 0 42px rgb(89, 0, 255),
+				0 0 82px rgb(89, 0, 255),
+				0 0 92px rgb(89, 0, 255),
+				0 0 102px rgb(89, 0, 255),
+				0 0 151px rgb(89, 0, 255);
+		}
+
+		.titleslide {
+			font-size: 4.2rem;
+			animation: flicker 1.5s infinite alternate;     
+		}
+
+			/* Flickering animation */
+			@keyframes flicker {
+				
+			0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+				text-shadow:
+				0 0 4px #fff,
+				0 0 11px #fff,
+				0 0 19px #fff,
+				0 0 40px rgb(89, 0, 255),
+				0 0 80px rgb(89, 0, 255),
+				0 0 90px rgb(89, 0, 255),
+				0 0 100px rgb(89, 0, 255),
+				0 0 150px rgb(89, 0, 255);
+			
+			}
+			
+			20%, 24%, 55% {        
+				text-shadow: none;
+			}    
+			}
+			.gradient{
+				background: linear-gradient(to right, #061161, #780206);
+			}
+			.header{
+				font-family:'Playfair Display', serif;
+				color: #780206;
+			}
+			#cogs{
+				opacity: .1;
+				transition: .5s;
+			}
+			#cogs:hover{
+				transform: scale(1.05);
+				opacity: .8;
+			}
+			h4{
+				color: rgb(89, 0, 255);
+			text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);
+			}
+			.btn{
+				width: 300px;
+				color: #fff;
+				background-color: #061161; 
+				padding: 20px; 
+				border-radius: 50px; 
+				border: 1px solid black;
+				transition: .4s;
+
+			}
+			.btn:hover{
+				background: transparent;
+				color: black;
+			}
+			.bar{
+				width: 100%;
+				margin: 20px 0;
+				background-color: #fff;
+				text-align: left;
+			}
+			.bead{
+				display: inline-block;
+				height: 100px;
+				width: 10%;
+				border-radius: 50%;
+				background-color: #780206;
+				cursor: move;
+			}
+			.correct::before{
+				content: "CORRECT ";
+				color: green;
+			}
+			.incorrect::before{
+				content: "INCORRECT ";
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!---------------------TITLE---------------------->
+
+
+				<section data-background = "black">
+					<h1 class="r-fit-text neonText titleslide">TIC-TAC-CODE</h1>
+				</section>
+
+
+				<!---------------------INTRO---------------------->
+
+
+				<section>
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h3 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);">Press the space button or click the arrows to navigate slides. On mobile devices, simply swipe through.</h3>
+						<p>You can also hit ESC to see the tree of slides.</p>
+						<br>
+						<a href="#/2/1" class="navigate-down">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header">Summary </h4>
+						<p>My project will be researching the history and application of computer programming. I will be creating a Tic-Tac-Toe game with JavaScript, HTML, and CSS.</p>
+					</section>
+				</section>
+
+
+				<!---------------------SLIDE---------------------->
+
+				
+
+				<!---------------------WHAT IS PROG SLIDE---------------------->
+
+
+				<section>
+					<section data-background="whatisProgrBckgd.jpg" data-auto-animate>
+						<h3 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="r-fit-text" data-id="box1">What is computer programming?</h3>
+					</section>
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)" data-auto-animate>
+						<h3 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box1">What is computer programming?</h3>
+						<p class="fragment">Computer Programming is the process of writing code to facilitate specific actions in a computer. <br>
+						</p>
+						<p class="fragment fade-right">You can think of it like a set of instructions for a computer to follow to create and operate software or applications. <br>
+						</p>
+						<p class="fragment">Since computers only know 1 language, binary, the programmer needs to write these instructions in certain programming languages.
+						</p>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)" data-auto-animate >
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="quest-title">History</h4>
+						<p class="fragment">Computing or calculating machines have been around long before modern computers.</p>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="quest-title">Do you know what the first calculating machine humans ever used?</h4>
+						<p style="display: none;" id="a1">The Abacus dates back to 1100 B.C. A rectangular device with horizontal bars going across the middle, attached to these bars are beads that represent a certain unit while counting. If the bead is on one side, it represents a 0; on the other, it represents a 1. Which is very similar to binary code that computers use to function.
+						</p>
+						<fieldset style="display:flex; flex-direction: column;" name="Q1" id="Q1">
+							<div class="cont">
+								
+								<input style="margin-right: 20px;"  type="radio" name="q1" value="a" onClick="wrong(`a1`),addWrong(),Q1.disabled=true,hide(`Q1`),show('a1')" />
+								<label for="q1">Iphone</label>
+							</div>
+							<div class="cont">
+								<input style="margin-right: 20px;" type="radio" name="q1" value="b" onClick="wrong(`a1`),addWrong(),Q1.disabled=true,hide(`Q1`),show('a1')"/>Digital Calculator
+							</div> 
+							<div class="cont">
+								<input style="margin-right: 20px;" type="radio" name="q1" value="c" onClick="right(`a1`),addRight(),Q1.disabled=true,hide(`Q1`),show('a1')"/>Abacus
+							</div>
+							<div class="cont">
+								<input style="margin-right: 20px;" type="radio" name="q1" value="d" onClick="wrong(`a1`),addWrong(),Q1.disabled=true,hide(`Q1`),show('a1')"/>Mechanical Calculator
+							</div>
+						</fieldset>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<!-- <div class="r-fit-text"> -->
+							<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="quest-title">Do you know what the letter A in binary code is?</h4>
+							<p style="display:none; font-size: 80%;" id="a2">Binary code is a numbering system where the base is 2. This means there are only 2 symbols,1 and 0, to represent all numbers. <br>  When computers became electronic this was the best counting system to use because binary can be easily represented by the “on/off” state of electricity. <br> Programming languages are just human-readable binary that gets translated into binary for the computer to read.
+							</p>
+						
+						<!-- </div> -->
+						<fieldset style="display:flex; flex-direction: column;"  name="Q2" id="Q2">
+							<div>
+								<input style="margin-right: 20px;" type="radio" name="q2" value="a" onClick="right(`a2`),addRight(),Q2.disabled=true,hide('Q2'),show('a2')"/>01000001
+							</div>
+							<div>
+								<input style="margin-right: 20px;" type="radio" name="q2" value="b" onClick="wrong(`a2`),addWrong(),Q2.disabled=true,hide('Q2'),show('a2')"/>10111110
+							</div>
+
+							<div>
+								<input style="margin-right: 20px;" type="radio" name="q2" value="c" onClick="wrong(`a2`),addWrong(),Q2.disabled=true,hide('Q2'),show('a2')"/>01010001
+							</div>
+
+							<div>
+								<input style="margin-right: 20px;" type="radio" name="q2" value="d" onClick="wrong(`a2`),addWrong(),Q2.disabled=true,hide('Q2'),show('a2');"/>11111111
+							</div>
+						</fieldset>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="quest-title">Do you know who the first computer programmer was?</h4>
+						<p id="a3" style="display: none;">Ada Lovelace is considered the first computer programmer. In 1883 she created a program for Charles Babbage's machine called the analytical engine. Her program was created to calculate the Bernoulli Numbers.</p>
+						<fieldset style="display:flex; flex-direction: column;" name="Q3" id="Q3">
+							<div>
+								<input style="margin-right: 20px;" type="radio" name="q3" value="a" onClick="wrong(`a3`),addWrong(),Q3.disabled=true,hide('Q3'),show('a3')"/>Bill Gates
+							</div>
+							<div>
+								<input style="margin-right: 20px;" type="radio" name="q3" value="b" onClick="wrong(`a3`),addWrong(),Q3.disabled=true,hide('Q3'),show('a3')"/>Albert Einstein
+							</div>
+							<div>
+								<input style="margin-right: 20px;" type="radio" name="q3" value="c" onClick="wrong(`a3`),addWrong(),Q3.disabled=true,hide('Q3'),show('a3')"/>Mark Zuckerberg
+							</div>
+							<div>
+								<input style="margin-right: 20px;" type="radio" name="q3" value="d" onClick="right(`a3`),addRight(),Q3.disabled=true,hide('Q3'),show('a3')"/>Ada Lovelace
+							</div>
+						</fieldset>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="quest-title">Do you know what the first commercial, personal computer was?</h4>
+						<p style="display:none ;font-size:75%;" id="a4">On December 19, 1974, the first successful personal computer, the Altair 8800, went on sale. <br>Ed Roberts, the creator of the Altair, worked with Bill Gates and Paul Allen to develop that PC’s first programming language. <br> In 1975, the partership between Bill Gates and Paul Allen turned into Microsoft.</p>
+
+						<fieldset style="display:flex; flex-direction: column;" name="Q4" id="Q4">
+							<div>
+								<input type="radio" name="q4" value="a" onClick="addRight(),Q4.disabled=true,hide('Q4'),show('a4'),right(`a4`)"/>Altair 8800
+							</div>
+							<div>
+								<input type="radio" name="q4" value="b" onClick="addWrong(),Q4.disabled=true,hide('Q4'),show('a4'),wrong(`a4`)"/>Apple Macintosh
+							</div>
+							<div>
+								<input type="radio" name="q4" value="c" onClick="addWrong(),Q4.disabled=true,hide('Q4'),show('a4'),wrong(`a4`)"/>Windows 98
+							</div>
+							<div>
+								<input type="radio" name="q4" value="d" onClick="addWrong(),Q4.disabled=true,hide('Q4'),show('a4'),wrong(`a4`);"/>IBM 5150
+							</div>
+						</fieldset>
+
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="quest-title">Do you know the name of the first computer game?</h4>
+						<p style="display:none; font-size:75%;" id="a5">While pong was the first commercially available computer game in 1973, Spacewar! was created in 1962 by Stephen Russel at MIT. <br>Two players each control a spaceship circling a planet. The players can shoot each other, turn their ships, and accelerate. <br> <img style="width:200px ;" src="Spacewar.gif" alt=""></p>
+
+						<fieldset style="display:flex; flex-direction: column;" name="Q5" id="Q5">
+							<div>
+								<input type="radio" name="q5" value="a" onClick="addWrong(),Q5.disabled=true,hide('Q5'),show('a5'),wrong(`a5`)"/>Pong
+							</div>
+							<div>
+								<input type="radio" name="q5" value="b" onClick="addWrong(),Q5.disabled=true,hide('Q5'),show('a5'),wrong(`a5`)"/>Grand Theft Auto
+							</div>
+							<div>
+								<input type="radio" name="q5" value="c" onClick="addRight(),Q5.disabled=true,hide('Q5'),show('a5'),right(`a5`)"/>Spacewar!
+							</div>
+							<div>
+								<input type="radio" name="q5" value="d" onClick="addWrong(),Q5.disabled=true,hide('Q5'),show('a5'),wrong(`a5`)"/>Donkey Kong
+							</div>
+						</fieldset>
+
+					</section>
+
+
+				</section>
+
+
+					<!---------------------PROGRAMMING LANGUAGES SLIDE---------------------->
+
+
+				<section data-visibility = "hidden">
+					<section data-background="ProgrBckgd.jpg" data-auto-animate>
+						<h1 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="r-fit-text">Programming Languages</h1>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box1">Programming languages</h4>
+						<p class="fragment">Can be broken down into 2 main groups</p>
+						<h5 data-id="box2" class="fragment fade-down" style="font-size: 150%; color: blue;">Front-End Languages</h5>
+						<h5 class="fragment fade-up" style="font-size: 150%; color: red;">Back-End Languages</h5>
+					</section>
+
+					<section data-background-transition="zoom" data-background-gradient="linear-gradient(to right, #005C97, #363795)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box2">Front-End Languages</h4>		
+						<p style="border:none;">Front-End languages focus on the elements and features of a website that are seen by the user.</p>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #005C97, #363795)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box2">Front-End Languages</h4>
+						<p>For example, a developer would use these languages to make:</p>
+						<ul>
+							<p class="fragment fade-in-then-semi-out">TEXT OR <span style="color:red ;">C</span><span style="color:orange ;">O</span><span style="color:yellow ;">L</span><span style="color:green;">O</span><span style="color:blue;">R</span><span style="color:purple;">S</span></p>
+							<p class="fragment fade-left"><button id="colorBtn" class="btn" style="cursor: pointer; font-size: 100%;">BUTTONS <br><span style="font-size: 50%;">Click Me</span></button></p>
+							<p class="fragment fade-in-then-semi-out"><img style="width: 500px; margin: 0;" src="tree-736885__480.jpg" alt=""></p>
+						</ul>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #005C97, #363795)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box2">Front-End Languages</h4>
+						<img class="r-fit-text" data-id="box3" src="HTML-logo.png" alt="">
+					</section>
+					<section data-background-gradient="linear-gradient(to right, #005C97, #363795)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box2">Front-End Languages</h4>
+						<img class="r-fit-text" style="width: 50%;" data-id="box3" src="CSS-logo.png" alt="">
+					</section>
+					<section data-background-gradient="linear-gradient(to right, #005C97, #363795)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box2">Front-End Languages</h4>
+						<img data-id="box3" src="JavaScript-Logo.png" alt="">
+						
+					</section>
+
+					<section data-background-transition="zoom" data-background-gradient="linear-gradient(to right, #c31432, #240b36)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box4">Back-End Languages</h4>
+						<p>Back-End languages focus on the side of the website the user doesn’t see.<br><br>These languages are what make a webpage or application interactive.
+						</p>
+						<img id="cogs" src="cogs.gif" alt="">
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #c31432, #240b36)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box4">Back-End Languages</h4>
+						<p class="" style="border:none;">For example, a developer would use these languages to store user information or to allow a user to make a purchase.</p>
+						<button style="font-size:100% ;text-transform: capitalize;" id="nameBtn" onclick="changeButtonName()" class="btn">CLICK ME</button>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #c31432, #240b36)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box4">Back-End Languages</h4>
+						<img data-id="box5" src="Java-logo.png" alt="">
+					</section>
+					<section data-background-gradient="linear-gradient(to right, #c31432, #240b36)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box4">Back-End Languages</h4>
+						<img data-id="box5" style="width: 50%;" src="Python-logo.png" alt="">
+					</section>
+					<section data-background-gradient="linear-gradient(to right, #c31432, #240b36)" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="header" data-id="box4">Back-End Languages</h4>
+						<img data-id="box5" style="width: 50%;" src="JavaScript-Logo.png" alt="">
+					</section>
+					
+				</section>
+				
+
+				<!---------------------SLIDE---------------------->
+
+
+				<section>
+					<section data-auto-animate section data-background="HTMLbckgd.jpg">
+					<h3 data-id="htmlhead" class="r-fit-text" style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);">HTML</h3>
+					</section>
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">HTML</h4>
+						<p class="fragment fade-right"><span style="color: #e34c26">H</span>yper<span style="color: #f06529;">T</span>ext <span style="color: #e34c26">M</span>arkup <span style="color:#f06529;">L</span>anguage or <span style="color:#e34c26;">HTML</span> is the language used to structure modern webpages and display their content.</p>
+						<p class="fragment">In 1993 Tim Berners-Lee expanded on Ted Nelson's idea of the hypertext.<span class="fragment fade-up"> Or text that contains links to other text on a different page. This connected webpages together in a kind of web.</span>
+						</p>
+					</section>
+					<section data-transition = "slide" data-background="#fff" data-background-transition="z" data-background-iframe="http://info.cern.ch/hypertext/WWW/TheProject.html" data-auto-animate>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">HTML</h4>
+						<p class="fragment fade-up">The first Website</p>
+						<p class="fragment fade-down">Though very simple</p>
+						<p class=" fragment fade-up">With the use of tags/elements and hyperlinks it allowed for simple and immediate information-sharing.</p>
+						<p class="fragment">This was the beginning of the World-Wide-Web.</p>
+						<pre class="fragment" data-id=""><code class="hljs" data-trim data-line-numbers>
+							<h1></h1> // Header Tag
+							<p></p> // Paragraph Tag
+							<a href=""></a> // Anchor tag, links to other pages
+						</code></pre>
+					</section>
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)" data-auto-animate >
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">HTML</h4>
+						<p class="fragment fade-up">Today, there are thousands of HTML elements this is how they are applied to create Tic-Tac-Toe...</p>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)" data-auto-animate >
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Head</h4>
+						<div class="r-fit-text">
+							<p class="fragment fade-left" >The head of the page holds very important information. It tells the computer what document type it is, what language it is in and automatically changes the width depending on the device being used. <span class="fragment">It is also where the title, or the name displayed on the tab bar, is located.</span><span class="fragment"> The last line of the head is where the CSS is linked so design can be implemented.</span> </p>
+						</div>
+						<pre data-id="code-animation1"><code class="hljs" data-trim data-line-numbers="1|2|6|7|8"><script type="text/template">
+							<!DOCTYPE html>
+								<html lang="en">
+								<head>
+									<meta charset="UTF-8">
+									<meta http-equiv="X-UA-Compatible" content="IE=edge">
+									<meta name="viewport" content="width=device-width, initial-scale=1.0">
+									<title>Tic-Tac-Toe</title>
+									<link rel="stylesheet" href="TicTacToe.css">
+								</head>
+						</script></code></pre>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)" data-auto-animate >
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Body</h4>
+						<div class="r-fit-text">
+							<p class="fragment fade-left" >The body holds all the information that is going to be displayed on the page. The body can be broken up into sections using the section tag.</p>
+							<!-- <p class="fragment">The h1 tag is used as the highest order header tag. They have the biggest and boldest font, usually used as titles.</p>
+							<p class="fragment">The paragraph tag is purposely left empty. It is meant to be hidden until the game starts and, by referencing the ID, can be added with JavaScript.</p> -->
+						</div>
+						<pre data-id="code-animation2"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							<body>
+								<section class="title row">
+									<h1>Tic-Tac-Toe</h1>
+									<p id="instructions"></p>
+								</section>
+						</script></code></pre>
+					</section>
+
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)" data-auto-animate  >
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Body</h4>
+						<!-- <div class="r-fit-text"> -->
+							<p class="fragment">Below the Title and Instructions will be the button section.</p>
+							<p class="fragment">This section will hold the display of whose turn it is and the button to start and restart the game.</p>
+							<!-- <p class="fragment">The strong tag is called an <em>Inline Tag</em> and can be used inside of a text tag. The Strong Tag boldens words.</p>
+							<p class="fragment">Like the instructions, part of it is purposely left blank. This is because it will be added with JavaScript when the game starts.</p> -->
+						<!-- </div> -->
+						<pre data-id="code-animation02"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							<section class="buttonDiv">
+								<p id="turnHolder"><strong class="x" id="turn"></strong> is Next</p>
+								<button onclick="startGame()" id="startGame">Click To Start</button>
+							</section>
+						</script></code></pre>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Board</h4>
+						<!-- <div class="r-fit-text"> -->
+							<p class="fragment">The largest section of the page is the board. It will hold the game board, scores, and the messages that popup when someone wins.</p>
+							<!-- <p class="fragment">The win message is meant to be hidden until someone wins and it should popup on top and in the middle of the board. This will be done in CSS but it only works if it is in the same "container" as the board.</p>
+							<p class="fragment">The player's scores will be displayed on the sides of the board instead of above or below. Again, this will only work if they are in the same "container."</p>
+							<p class="fragment">The div tag, or divider tag, can be used as a container and holds all of elements inside as 1. <br>Like a box full of many items.</p> -->
+							
+						<!-- </div> -->
+						<pre data-id="code-animation02"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							<section>
+								<h1 id="winMessage"></h1>
+								<div class="boardAndScore">
+						</script></code></pre>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Board</h4>
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px #780206,0 0 15px #780206,0 0 15px #780206,0 0 15px #780206,0 0 15px #780206" class="fragment" data-id="code-title">Table Tag</h4>
+						<div class="r-fit-text">
+							<p class="fragment fade-left" >The <span style="color: red;">Table Tag</span> is used to make tables. It will hold the the 2 types of elements required to build the board, Table Row and Table Data</p>
+						</div>
+						<pre data-id="code-animation3" ><code class="hljs" style="height: 300px;" data-trim data-line-numbers="1,17"><script type="text/template">
+							<table>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</table>
+						</script></code></pre>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Board</h4>
+							<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px green,0 0 15px green,0 0 15px green,0 0 15px green,0 0 15px green ">Table Row tag</h4>
+							<p data-id="code-sub1" class="fragment">Nested inside the table are 3 <span style="color:green ;">Table Row</span>  elements. These represent the 3 rows of a Tic-Tac-Toe board</p>
+							<pre data-id="code-animation4"><code class="hljs"style="height: 300px;" data-trim data-line-numbers="2,6,7,11,12,16"><script type="text/template">
+								<table>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</table>
+							</script></code></pre>
+					</section>
+
+					<section class="r-stack" data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Board</h4>
+							<p style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px #061161,0 0 15px #061161,0 0 15px #061161,0 0 15px #061161" class="" data-id="code-title">Table Data tag</p>
+							<div class="r-fit-text">
+								<p class="fragment">The inner-most layers are <span style="color:blue ;">Table data</span> tags. They hold and display the information of the table. 3 table data tags are placed inside each row creating 3 rows with 3 tiles in each row. They represent where the player will place their mark.</p>
+							</div>
+							<pre data-id="code-animation5"><code class="hljs"style="height: 300px;" data-trim data-line-numbers="3-5,8-10,13-15"><script type="text/template">
+								<table>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</table>
+							</script></code></pre>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Board (Classes and ID's)</h4>
+						
+							<div class="r-fit-text">
+								<p style="margin-top: 0;" class="fragment">Each table data ID is labled 0-8, this will be referenced in JavaScript. <span class="fragment"> Each Table Data tag also has 2 class names. These will be referenced in CSS for design and also in JavaScript to determine the mark in each "tile."</span></p>
+							</div>
+							<pre data-id="code-animation6"><code class="hljs" data-trim data-line-numbers="1|3-5|8-10|13-15"><script type="text/template">
+								<table id="board">
+									<tr>
+										<td id= "0" class="tile tl"></td>
+										<td id= "1" class="tile tm" ></td>
+										<td id= "2" class="tile tr"></td>
+									</tr>
+									<tr>
+										<td id= "3" class="tile ml"></td>
+										<td id= "4" class="tile mm"></td>
+										<td id= "5" class="tile mr"></td>
+									</tr>
+									<tr>
+										<td id= "6" class="tile bl"></td>
+										<td id= "7"class="tile bm"></td>
+										<td id= "8" class="tile br"></td>
+									</tr>
+								</table>
+							</script></code></pre>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Board (Score)</h4>
+							<div class="r-fit-text">
+								<p class="fragment">Since games of Tic-Tac-Toe are played rather quickly, players will more than likely play more than 1 game.</p>
+								<p class="fragment">X's score will be on the left and O's score will be on the right. Both will update after each game.</p>
+							</div>
+							<pre data-id="code-animation7"><code class="hljs"style="height: 300px;" data-trim data-line-numbers="1,19"><script type="text/template">
+								<p class="scoreX playerScore">Player X Score <b id="scoreX" ></b></p>
+								<table id="board" class="board">
+									<tr>
+										<td id="0" class="tile tl" ></td>
+										<td id= 1 class="tile tm" ></td>
+										<td id="2" class="tile tr"></td>
+									</tr>
+									<tr>
+										<td id="3" class="tile ml"></td>
+										<td id= 4 class="tile mm" ></td>
+										<td id="5" class="tile mr"></td>
+									</tr>
+									<tr>
+										<td id="6" class="tile bl"></td>
+										<td id= 7 class="tile bm"></td>
+										<td id= "8" class="tile br"></td>
+									</tr>
+								</table>
+								<p class="scoreO playerScore">Player O Score <b id="scoreO"></b></p>
+							</script></code></pre>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Footer</h4>
+							<div class="r-fit-text">
+								<p class="fragment">The footer is located at the bottom of the page.</p>
+								<p class="fragment">For this page it will hold links to social medias and signature.</p>
+							</div>
+							<pre data-id="code-animation8"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								<footer>
+									<div class="links">
+										<div class="footSocials">
+											<a href="https://www.facebook.com/"><ion-icon id="fb" name="logo-facebook"></ion-icon></a>
+											<a href="https://twitter.com/"><ion-icon id="twitter" name="logo-twitter"></ion-icon></a>
+											<a href="https://www.google.com/"><ion-icon id="google" name="logo-google"></ion-icon></a>
+											<a href="https://www.instagram.com/"><ion-icon id="ig" name="logo-instagram"></ion-icon></a>
+										</div>
+									</div>
+									<p class="signature">2022 by Christopher Wright. cswright221@stevenscollege.edu.</p>
+								</footer>
+							</bodyy>
+							</script></code></pre>
+					</section>
+					<!--  -->
+					<section data-background-size = "99.9%" data-auto-animate data-background="html-no-css.png">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" data-id="htmlhead">The Page Without CSS</h4>
+						<p style="color:black;" class="fragment">Without CSS design the page looks very elementary and without JavaScript the page is inoperable.</p>
+						<!-- <p style="color:black;" class="fragment">Since the board isn't visible at all, CSS will be added next so the JavaScript can be properly tested.</p> -->
+					</section>
+
+				</section>
+
+				<!---------------------SLIDE---------------------->
+
+
+				<section>
+					<section data-auto-animate data-background="cssbckgd.jpeg">
+					<h4 class="r-fit-text" style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">CSS</h4>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">CSS</h4>
+						<p class="fragment"><span style="color:#2965f1;">C</span>ascading <span style="color:#2965f1;">S</span>tyle <span style="color:#2965f1;">S</span>heets or <span style="color:#2965f1;">CSS</span> is the language developers use to style an HTML document.</p>
+						<!-- <p class="fragment">CSS controls the color, font, and size of text, how elements are positioned and laid out, what background images or background colors are to be used, and much more.</p> -->
+						<p class="fragment">CSS was formed by Hakon Wium Lie in 1994 while working alongside Tim Berners-Lee to start the formation of the World-Wide-Web.
+						</p>
+
+					</section>
+
+					<section data-auto-animate data-background="#fff" data-background-iframe="https://www.w3.org/People/howcome/p/cascade.html">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">CSS</h4>
+						<div class="r-fit-text">
+							<p style="background-color: white;" class="fragment">In 1994 Hakon Wium Lie proposed the idea of adding a style sheet, like ones used for newspapers, to webpages.</p>
+							<p style="background-color: white;" class="fragment">With the use of the link tag, he proposed the idea of cascading, or being able to design more than 1 page with the same style.</p>
+							<p style="background-color: white;" class="fragment">In this proposal, he discussed ideas for properties that change fonts, font size, font weight, background colors, element alignment, margins between elements, and the length and width for the window.</p>
+						</div>
+						<pre data-id="code-animation8"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							<LINK REL="style" HREF="http://NYT.com/style">
+						</script></code></pre>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">CSS</h4>
+						<p class="fragment">Today, there are thousands of CSS properties this is how they are applied to create Tic-Tac-Toe...</p>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">Selectors</h4>
+						<p class="fragment">Selectors are used to specify which element you want to change the property of.</p>
+						<!-- <p class="fragment">Tag name, class name, and ID's can all be used as selectors.</p> -->
+						<pre data-id="code-animation9"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							tag{
+								font size: 24px;
+							}
+							.className{
+								color: red;
+							}
+							#ID{
+								background-color: blue;
+							}
+						</script></code></pre>
+					</section>
+
+					
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">Global styles</h4>
+						<div class="r-fit-text">
+							<p style="font-size: 75%;" class="fragment">The HTML selector is used to add styles to the whole document and the "*" is a special selector that selects every element in the document.</p>
+							<!-- <p style="font-size: 75%;"class="fragment">The height of the whole page is set to 100% of the users viewport making everything fit on the screen without scrolling</p>
+							<p style="font-size: 75%;"class="fragment">With the "*" selector all elements are set to 0 margin, 0 padding and the font weight is set to 100 which is thinner and less bold.</p>
+							<p style="font-size: 75%;"class="fragment">The box sizing property allows for element's width and height to be calculated with padding included. The position property positions all elements relative to each other and will be useful when adding an absolute positioned element.</p> -->
+						
+						<pre data-id="code-animation10"><code class="hljs"  data-trim data-line-numbers=""><script type="text/template">
+							html{
+								background-color: black;
+								font-family: 'Kalam', cursive;
+								font-size: 20px;
+								color: #fff;
+								height: 100vh;
+							}
+							*{
+								margin: 0;
+								padding: 0;
+								box-sizing: border-box;
+								position: relative;
+								font-weight: 100;
+							}
+						</script></code></pre>
+					</div>
+					</section>
+					
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">Title and Instructions</h4>
+						<!-- <div class="r-fit-text">
+							<p class="fragment"style="font-size: 75%;">Since the whole HTML page height is 100% of the viewport, the height of the sections inside need to add up to 100 or less. Adding 10 pixels to the margin and padding adds 10 pixels of space between the title and the top of the page and 10 pixels between the title and the elements underneath.</p>
+							<p class="fragment"style="font-size: 75%;">The text inside the title section is selected using class name and the name of the tag. This means select the h1 tags in the title section.</p>
+							<p class="fragment"style="font-size: 75%;">The size of the title's font is set to 300% biggger than 20px this makes it easier to change font size when switching to smaller screens. The text-shadow property is used to create the neon lettering effect.</p> -->
+						
+							<pre data-id="code-animation11"><code  class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								.title{
+									padding-top: 10px;
+									height: 10vh;
+									text-align: center;
+									margin-bottom: 10px;
+								}
+								.title h1{
+									font-size: 300%;
+									font-weight: 200;
+									text-transform: uppercase;
+									color: #fff;
+									text-shadow: 
+										/* White glow  */
+										0 0 5px #fff,
+										0 0 5px #fff,
+										0 0 5px #fff,
+										/* Purple glow */
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130);
+								}
+								#instructions{
+									text-align: center;
+									margin: 0px auto;
+									text-shadow: 
+										/* White glow  */
+										0 0 5px #fff,
+										0 0 5px #fff,
+										0 0 5px #fff,
+										/* Purple glow */
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130);
+								}
+							</script></code></pre>
+						<!-- </div> -->
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">Button and Turn display</h4>
+						<!-- <div class="r-fit-text"> -->
+							<!-- <p class="fragment"style="font-size: 75%;">The display flex property allows for the button and p tag elements to easily be placed next to each other with even margins inbetween.</p>
+							<p class="fragment"style="font-size: 75%;">CSS has evolved to be able to do hover animations without JavaScript, these are called pseudoclasses., and there are many more.</p>
+							<p class="fragment"style="font-size: 75%;">When the cursor hovers over the button, the text-shadow and box-shadow colors switch and the transition will take .5 seconds.</p> -->
+							<pre data-id="code-animation12"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								.buttonDiv{
+									text-align: center;
+									height: 10vh;
+									display: flex;
+									justify-content: space-evenly;
+								}
+								button{
+									cursor: pointer;
+									padding: 20px;
+									border-radius: 50px;
+									background-color: black;
+									border: 1px solid #fff;
+									text-shadow: 
+									0 0 5px #fff,
+									0 0 5px #fff,
+									0 0 5px #fff,
+									/* Blue glow */
+									0 0 5px #0ff,
+									0 0 5px #0ff,
+									0 0 5px #0ff,
+									0 0 5px #0ff,
+									0 0 5px #0ff;
+									box-shadow: 0px 0px 20px #f00 ;
+									transition: .5s;
+								}
+								button:hover{
+									text-shadow: 
+									0 0 5px #fff,
+									0 0 5px #fff,
+									0 0 5px #fff,
+									/* Red glow */
+									0 0 15px #f00,
+									0 0 15px #f00,
+									0 0 15px #f00,
+									0 0 15px #f00,
+									0 0 15px #f00;
+									box-shadow:0px 0px 20px #0ff;
+								}
+								.buttonDiv p{
+									text-shadow: 
+									/* White glow  */
+									0 0 5px #fff,
+									0 0 5px #fff,
+									0 0 5px #fff,
+									/* Purple glow */
+									0 0 15px rgb(85, 37, 130),
+									0 0 15px rgb(85, 37, 130),
+									0 0 15px rgb(85, 37, 130),
+									0 0 15px rgb(85, 37, 130),
+									0 0 15px rgb(85, 37, 130);
+								}
+							</script></code></pre>
+						<!-- </div> -->
+					</section>
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">The Score</h4>
+						<!-- <div class="r-fit-text">
+							<p class="fragment">While the flex property is applied to the container, the scores will be next to the board but will take up to much space if oriented horizontally. The writing-mode property can display text vertical and the text-orientation property displays the letters upright instead of sideways.</p> -->
+							<pre data-id="code-animation13"><code  class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								.boardAndScore{
+									display: flex;
+									align-items: center;
+									position: relative;
+									min-height: 100%;
+								}
+								.playerScore{
+									writing-mode: vertical-rl;
+									text-orientation: upright;
+									text-transform: uppercase;
+									margin: 0 20px;
+									font-size: 90%;
+								}
+								.scoreX{
+									text-shadow: 
+									0 0 5px #fff,
+									0 0 5px #fff,
+									0 0 5px #fff,
+									/* Red glow */
+									0 0 15px #f00,
+									0 0 15px #f00,
+									0 0 15px #f00,
+									0 0 15px #f00,
+									0 0 15px #f00;
+								}
+								.scoreO{
+									text-shadow: 
+									0 0 5px #fff,
+									0 0 5px #fff,
+									0 0 5px #fff,
+									/* Blue glow */
+									0 0 15px #0ff,
+									0 0 15px #0ff,
+									0 0 15px #0ff,
+									0 0 15px #0ff,
+									0 0 15px #0ff;
+								}
+							</script></code></pre>
+						<!-- </div> -->
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">Win Message</h4>
+						<!-- <div class="r-fit-text">
+							<p class="fragment"style="font-size: 75%;">The win message will popup when there is a win or a tie. The absolute position will make sure it pops up in the middle of the board regardless of the screen size. A simple zoom animation can be done by transforming the scale from 0 to 1 with a 1 second transition time.</p>
+							<p class="fragment"style="font-size: 75%;">Absolute positioning will place that element there regardless of any other element there, with the z-index property layers can be added to the page, stacking elements on top of each other.</p> -->
+							<pre data-id="code-animation14"><code  class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								#winMessage{
+									font-size: 400%;
+									width: fit-content;
+									height: fit-content;
+									color: #fff;
+									text-shadow: 
+										/* White glow  */
+										0 0 5px #fff,
+										0 0 5px #fff,
+										0 0 5px #fff,
+										/* Purple glow */
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130),
+										0 0 15px rgb(85, 37, 130);
+									position: absolute;
+									left: 0;
+									right: 0;
+									top: 0;
+									bottom: 0;
+									margin: auto;
+									transform: scale(0);
+									transition: 1s;
+									z-index: 3;
+								}
+							</script></code></pre>
+						<!-- </div> -->
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">The Board</h4>
+						<!-- <div class="r-fit-text">
+							<p class="fragment">To make the table look like a Tic-Tac-Toe board, each td tag needs their own border.</p> -->
+							<pre data-id="code-animation15"><code  class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								table{
+									width: 65%;
+									min-height: 450px;
+									border-spacing: 0;
+									margin: 10px auto;
+								}
+								.tile{
+									width: 31%;
+									height: 31%;
+									border: 2px solid #ccc;
+									text-align: center;
+									font-size: 500%;
+								}								
+								.tl{
+									border-left: none;
+									border-top: none;
+									box-shadow: inset -10px -10px 10px -10px #ccc;
+								}								
+								.tm{
+									border-top: none;
+									box-shadow: inset 10px -8px 10px -10px #ccc, 
+									inset -10px -5px 10px -10px #ccc
+								}								
+								.tr{
+									border-top: none;
+									border-right: none;
+									box-shadow:  inset 10px -10px 10px -10px #ccc;
+								}								
+								.ml{
+									border-left: none;
+									box-shadow:inset -10px 10px 10px -10px #ccc, inset -5px -10px 10px -10px #ccc;
+								}								
+								.mm{
+									box-shadow:inset 0px 0px 10px #ccc ;
+								}								
+								.mr{
+									border-right: none;
+									box-shadow:inset 5px 10px 10px -10px #ccc, inset 10px -10px 10px -10px #ccc;
+								}								
+								.bl{
+									border-left: none;
+									border-bottom: none;
+									box-shadow:inset -10px 10px 10px -10px #ccc;
+								}
+								.bm{
+									border-bottom: none;
+									box-shadow:inset 10px 5px 10px -10px #ccc, inset -10px 10px 10px -10px #ccc;
+								}
+								.br{
+									border-right: none;
+									border-bottom: none;
+									box-shadow:inset 10px 10px 10px -10px #ccc;
+								}
+							</script></code></pre>
+						<!-- </div> -->
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">Footer</h4>
+						<!-- <div class="r-fit-text">
+							<p class="fragment">Every color has a designated <span style="color:red ;">R</span><span style="color: green;">G</span><span style="color: blue;">B</span> or hex value. Hex colors are specified as #<span style="color:red ;">RR</span><span style="color: green;">GG</span><span style="color: blue;">BB</span>  and each color can be represented as integers 00-ff where 00 is none of that color and ff is the maximum intensity of that color.</p>
+							<p class="fragment">There are over 16 million color combintations with hex values. Major brands usually choose unique colors for their brand and they can all be represented as hex values.</p> -->
+							<pre data-id="code-animation16"><code  class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								footer{
+									width: 100%;
+									clear: both;
+									min-height: 10vh;
+									display: flex;
+									flex-direction: row-reverse;
+									justify-content: space-evenly;
+									align-items: center;
+									flex-wrap: wrap-reverse;
+									position: fixed;
+									bottom: 0;
+								}
+								.links{
+									display: flex;
+									justify-content: space-evenly;
+									
+								}
+								.footSocials{
+									width: 20%;
+									display: flex;
+									justify-content: space-evenly;
+								}
+								.footSocials ion-icon{
+									font-size: 24px;
+									color: #fff;
+									cursor: pointer;
+									margin: 0 10px;
+								}
+								#fb:hover{
+									color: #1877F2;
+									transition: color .2s;
+								}
+								#twitter:hover{
+									color: #1DA1F2;
+									transition: color .2s;
+								}
+								#google:hover{
+									color: #DB4437;
+									transition: color .2s;
+								}
+								#ig:hover{
+									color: #C13584;
+									transition: color .2s;
+								}
+								.signature{
+									font-size: 75%;
+								}
+								
+							</script></code></pre>
+						<!-- </div> -->
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">Designs Added With JavaScript</h4>
+						<!-- <div class="r-fit-text">
+							<p class="fragment">Another pseudoclass provided with CSS are the before and after pseudoclasses. They can be used to add content to the page with CSS.</p>
+							<p class="fragment">Depending on whose turn it is, a mouse click will add either the x or o class and the disabled class so the user knows that space is taken.</p> -->
+							<pre data-id="code-animation17"><code  class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								.x::before{
+									content: "X";
+									font-size: 100%;
+									text-shadow: 
+									0 0 5px #fff,
+									0 0 5px #fff,
+									0 0 5px #fff,
+									/* Red glow */
+									0 0 15px #f00,
+									0 0 15px #f00,
+									0 0 15px #f00,
+									0 0 15px #f00,
+									0 0 15px #f00;;
+								}
+								.o::before{
+									content: 'O';
+									font-size: 100%;
+									text-shadow: 
+									0 0 5px #fff,
+									0 0 5px #fff,
+									0 0 5px #fff,
+									/* Blue glow */
+									0 0 15px #0ff,
+									0 0 15px #0ff,
+									0 0 15px #0ff,
+									0 0 15px #0ff,
+									0 0 15px #0ff;
+								}
+								.disabled {
+									cursor: not-allowed;
+								}
+								.tile:not(.disabled):hover {
+									cursor: pointer;
+								}
+							</script></code></pre>
+						<!-- </div> -->
+					</section>
+
+					<section data-auto-animate data-background="css-no-js.png">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="csshead">CSS</h4>
+						<p class="fragment">The page looks like an operable game but without JavaScript the page will not function as a playable game.</p>
+					</section>
+
+				</section>
+
+				<!---------------------JAVASCRIPT SLIDE---------------------->
+
+				<section> 
+
+					<section data-auto-animate data-background="JSbckgd.jpg">
+					<h3 class="r-fit-text" data-id="jshead" style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);">JavaScript</h3>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">JavaScript</h4>
+						<p class="fragment">JavaScript is a programming language used to make web pages interactive.</p>
+						<p class="fragment">JavaScript can calculate, manipulate and validate data. It can also update and change both HTML and CSS.</p>
+						<p class="fragment">JavaScript was invented by Brendan Eich in 1995 for Netscape 2, the first commercial web browser</p>
+					</section>
+
+					<section data-auto-animate data-background ="NetscapeImg.png"data-background-size="contain">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">JavaScript</h4>
+						<p style="color:black; background-color: #fff;" class="fragment">In the early years of the World Wide Web, webpages lacked the capability for dynamic behavior after the page was loaded in the browser.</p>
+						<p style="color:black;background-color: #fff;" class="fragment">JavaScript allowed for both front-end and back-end programming, which allowed developers to build complex interactive websites and to connect servers to websites and web applications</p>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">JavaScript Functions</h4>
+						<p class="fragment">A JavaScript function is a block of code designed to perform a particular task and every time that function is referenced, that block of code will be executed.</p>
+						<p class="fragment"></p>
+						<pre data-id="code-animation18"><code  class="hljs" data-trim data-line-numbers=""><script type="text/template">
+							function multiply(x, y) {
+								return x * y;
+							  }
+						</script></code></pre>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">JavaScript</h4>
+						<p class="fragment">Functions are customizable for specific tasks.</p>
+						<p class="fragment">These are the functions needed to create Tic-Tac-Toe...</p>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">Variables and arrays</h4>
+						<!-- <div class="r-fit-text"> -->
+							<p class="fragment">Variables and arrays are forms of data storage in JavaScript. Variables can hold only 1 of the 5 data types and arrays can hold an infinite combination of the 5 data types.</p>
+							<!-- <p class="fragment">, String (letters), Numbers, Boolean (true or false), Null, and Undefined</p>
+							<p class="fragment"> They can even hold other arrays creating multidimensional arrays.</p> -->
+							<pre data-id="code-animation19"><code style="height: 300px;" class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								let playerXScore = 0 //starting score 0
+								let playerOScore = 0// starting score 0
+								let moves// counter for amount of moves if noone has won when moves = 9 it must be a tie
+								const playerXMark = 'x'// adds class to tile when clicked
+								const playerOMark = 'o'// adds class to tile when clicked
+								const playerXTile = []// stores id of tile clicked by X to check against win combos
+								const playerOTile = []// stores id of tile clicked by O to check against win combos
+								const wins = [ // All of the winning combos. Gets compared to playerX/OTiles for win
+									['0', '1', '2'],// top row
+									['3', '4', '5'],// middle row
+									['6', '7', '8'],//bottom row
+									['0', '3', '6'],//first collumn
+									['1', '4', '7'],//second column
+									['2', '5', '8'],//third column
+									['0', '4', '8'],//diagonal topleft middle bottomright
+									['2', '4', '6']//diagonal topright middle bottomleft
+								]
+								const winMessage = document.getElementById('winMessage') // getting win message display
+								const showTie = document.getElementById('winMessageTie')
+								const xScore = document.getElementById('scoreX') // getting score display
+								const oScore = document.getElementById('scoreO') // getting score display
+								const tiles = document.querySelectorAll('.tile') // getting all board tiles
+								const restartButton = document.getElementById('startGame') // getting button
+								const instructions = document.getElementById('instructions') // getting instructions display
+								const turnHolder = document.getElementById('turnHolder')//getting whole turn holder
+								const whoseTurn = document.getElementById('turn') // getting turn holder for letter X or O
+								let playerOTurn = false // setting to player Xs turn by setting player O turn to false
+							</script></code></pre>
+						<!-- </div> -->
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">Starting the Game</h4>
+						<!-- <div class="r-fit-text"> -->
+							<p class="fragment">This function will clear the board if there was a previous game and get the board ready for next game.</p>
+							<!-- <p class="fragment">It is added to the startGame button element manually in the HTML. It will be executed when the button is clicked.</p>
+							<p class="fragment">JavaScript can add functions also. Adding an event listener to an element will activate that function when an event like click or scroll is applied.</p> -->
+							
+							<pre data-id="code-animation20"><code class="hljs"style="height:300px" data-trim data-line-numbers=""><script type="text/template">
+								function startGame(){// function to start the game applied to start button onclick
+									playerOTurn = false // start with player x turn
+									turnHolder.style.display = 'block' // showing Next turn on restart
+									instructions.innerHTML = "Click Tile to place your mark <br> 3 marks in a row wins" // giving instructions after start is pressed
+									restartButton.innerHTML = "Restart Game" // change start game to restart game when button is clicked
+									playerOTile.length = 0 // clear player tiles collected from last game
+									playerXTile.length = 0 // clear player tiles collected from last game
+									moves = 0 // clearing moves counter from last game
+									xScore.innerHTML = `${playerXScore}` //showing player x score
+									oScore.innerHTML = `${playerOScore}` //showing player o score
+									whoseTurn.classList.add(playerXMark) // because starting with player x add this class to the turn holder
+									whoseTurn.classList.remove(playerOMark) // remove other classes from turn holder
+									winMessage.classList.remove(playerXMark) // remove last winner class off win message h1
+									winMessage.classList.remove(playerOMark) // remove last winner class off win message h1
+									winMessage.style.transform = 'scale(0)' // hiding win message on restart
+									// showTie.style.transform = 'scale(0)' // hiding tie message on restart
+									tiles.forEach(tile => { // removing all classes from last game
+										tile.classList.remove(playerXMark)
+										tile.classList.remove(playerOMark)
+										tile.classList.remove('disabled')
+										tile.removeEventListener('click', clickTile)
+										tile.addEventListener('click', clickTile, { once: true })// adding click event to each tile and allow only 1
+									})
+								}
+							</script></code></pre>
+						<!-- </div> -->
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">Clicking a Tile</h4>
+						<!-- <div class="r-fit-text"> -->
+							<p class="fragment">This function will tell the other functions whose turn it is and what tile is clicked.</p>
+							<!-- <p class="fragment">Conditional statements are used to perform different actions based on different conditions.</p>
+							<p class="fragment">If the condition in the parentheses is true, it will execute the block of code under it. If that condition is false, the block of code under the else statement will be executed.</p> -->
+						<!-- </div> -->
+							<pre data-id="code-animation21"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								function clickTile() { //function to handle tile click
+									if(playerOTurn === false){ // if its player x's turn 
+									   var thisTurn = playerXMark //holding .x class as thisTurn to tell functions whose turn it is
+									   whoseTurn.classList.add(playerOMark) // adding stlye and mark for turn holder for O turn
+									   whoseTurn.classList.remove(playerXMark)// removing previous class style
+									}
+									else{//if its player O turn
+										var thisTurn = playerOMark //holding .o class as thisTurn to tell mark function whose turn it is
+										whoseTurn.classList.add(playerXMark) // adding style and mark for turn holder for X turn
+										whoseTurn.classList.remove(playerOMark)// removing previous class style
+									}
+									mark(tile, thisTurn) // depending on whose turn put their mark on THIS clicked tile
+									checkWin() //after every tile is marked checkwin
+									changeTurns() //after every tile is marked change turns
+								}
+							</script></code></pre>
+						
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">Placing a Mark</h4>
+						<div class="r-fit-text">
+							<p class="fragment">This function will recieve whose turn it is and place that mark in the tile.</p>
+							<p class="fragment">It will also store the id of that tile into that players array to check for wins.</p>
+						</div>
+							<pre data-id="code-animation22"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								function mark(tile, thisTurn) { //  display either X/O mark
+									tile.classList.add(thisTurn) // adding design to tile depending on what value thisTurn is
+									tile.classList.add('disabled') // adds disabled class to marked tile which disables clicks
+									if(thisTurn === playerXMark){ // it is player x's turn
+										playerXTile.push(tile.id) // adds id of that tile to player x's collected tiles arr to compare for wins
+										playerXTile.sort().toString() // sorting player x's collected tiles array from lowest to highest and turning it into string
+									}
+									else if (thisTurn === playerOMark){ // it is player o's turn
+										playerOTile.push(tile.id) // adds id of that tile to player o's collected tiles arr to compare for wins
+										playerOTile.sort().toString() //sorting player o's collected tiles arr from lowest to highest and turning it into string
+									}
+								}
+							</script></code></pre>
+						
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">Switch Turns</h4>
+							<p class="fragment">This function will change turns after every click</p>
+							<p class="fragment">The "!" operator means NOT. If playerOTurn is false it will now be true and vice versa.</p>
+							<pre data-id="code-animation23"><code class="hljs" data-trim data-line-numbers=""><script type="text/template">
+								function changeTurns() { //change turns runs after checkwin, checkwin will disable clicks if someone wins
+									playerOTurn = !playerOTurn 
+								}
+							</script></code></pre>
+					</section>
+					
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">Checking For Win</h4>
+							<p class="fragment">After every click this function will check the tiles collected by each player and if they match one of the winning combinations that player wins.</p>
+							<p class="fragment">The moves counter will increase every click and if there is not a winner by then, it is a tie.</p>
+							<pre data-id="code-animation24"><code class="hljs " style="height: 300px;" data-trim data-line-numbers=""><script type="text/template">
+								function checkWin(){ // checks win after every tile click
+									moves++ // adds move to counter 
+									for(i=0;i< wins.length;i++){ // loops through array of wins
+										let winner; // variable to hold class of whoever wins
+										
+										// variables to hold collected tiles that are found in wins array
+										let xCollected1 = playerXTile.indexOf(wins[i][0]) 
+										let xCollected2 = playerXTile.indexOf(wins[i][1]) 
+										let xCollected3 = playerXTile.indexOf(wins[i][2]) 
+										let oCollected1 = playerOTile.indexOf(wins[i][0])
+										let oCollected2 = playerOTile.indexOf(wins[i][1])
+										let oCollected3 = playerOTile.indexOf(wins[i][2])
+										// variables to hold collected tiles that are found in wins array
+								
+										if(xCollected1 > -1 && xCollected2 > -1 && xCollected3 > -1){ //checks to see if the values of player x's collected tiles array match any of the combinations of wins exactly and if all of them are found it is a win
+											winner = playerXMark //setting winner class as .x to tell endGame function
+											endGame(winner) //run endGame function for X
+										}
+										else if(oCollected1 > -1 && oCollected2 > -1 && oCollected3 > -1){ //checks to see if the values of player o's collected tiles array match any of the combinations of wins exactly and if all of them are found it is a win
+											winner = playerOMark //setting winner class as .o to tell endGame function
+											endGame(winner) //run endgame function for O
+										}
+										else if(moves === 9){ //if noone wins in 9 moves must be tie
+											endGameTie() // run endGameTie
+										}
+									}
+								}
+							</script></code></pre>
+						
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);"data-id="jshead">Display the Winner</h4>
+						<!-- <div class="r-fit-text"> -->
+							<p class="fragment">These functions are executed after somebody wins.</p>
+							<!-- <p class="fragment">To make sure the user knows the game is finished, the functions are removed from the tiles to render them inactive.</p>
+							<p class="fragment">Depending on the winner,their score will increase by 1 and a win message will popup in the center of the board displaying the winner's mark</p>
+							<p class="fragment">If there is a tie both player's score will increase by 1 and the win message will display "TIE! try Again!"</p> -->
+						<!-- </div> -->
+							<pre data-id="code-animation24"><code class="hljs " style="height: 300px;" data-trim data-line-numbers=""><script type="text/template">
+								function endGame(winner){ // function to end game and display winner
+									tiles.forEach(tile => { // when game ends preventing from clicking more tiles
+										tile.classList.add('disabled')
+										tile.removeEventListener('click', clickTile)
+									})
+									turnHolder.style.display = 'none' // hide turn holder
+									winMessage.innerHTML = ` WINS!`
+									winMessage.style.transform = 'scale(1)' // grows win message into view
+									winMessage.classList.add(winner) // displays an X/O WINS
+									if(winner === playerXMark){ // adds score depending on winner
+										playerXScore += 1
+									}
+									else{
+										playerOScore += 1
+									}
+									xScore.innerHTML = `${playerXScore}` // displays new score 
+									oScore.innerHTML = `${playerOScore}` // displays new score
+								}
+								function endGameTie(){ // if there is no winner display tie message
+									playerOScore += 1
+									playerXScore += 1
+									turnHolder.style.display = 'none' 
+									winMessage.innerHTML = 'TIE! Try Again!'
+									winMessage.style.transform = 'scale(1)'
+									xScore.innerHTML = `${playerXScore}` //display new score
+									oScore.innerHTML = `${playerOScore}` //display new score
+								}
+							</script></code></pre>
+					</section>
+
+					<section data-auto-animate data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						
+					</section>
+
+				</section>
+
+				<!---------------------GAME SLIDE---------------------->
+
+				<section>
+					<section  data-background-gradient="linear-gradient(to right, #061161, #780206)">
+					<h4 class="r-fit-text" style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);">TIC-TAC-TOE</h4>
+					</section>
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="r-fit-text">Against CPU</h4>
+					</section>
+					<section data-background-iframe="TicTacToeCPU.html">
+						
+					</section>
+					<section data-background-gradient="linear-gradient(to right, #061161, #780206)">
+						<h4 style="text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130),0 0 15px rgb(85, 37, 130);" class="r-fit-text">2-Player</h4>
+					</section>
+					<section data-background-iframe="TicTacToe.html">
+
+					</section>
+				</section>
+
+
+
+				
+			</div>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+		<script>
+			let colorBtn = document.getElementById('colorBtn')
+			window.onload = colorBtn.addEventListener('click', changeColor)
+			let clickCount = 0
+			function changeButtonName(){
+				clickCount++
+				if(clickCount===1){
+					let userInput = prompt("What is your name?")
+					var button = document.getElementById('nameBtn');
+					button.innerHTML = 'Check the Tab on Top of the Screen'
+					document.title = `Hello ${userInput}!`
+				}
+				else{
+					document.title = "TIC-TAC-CODE";
+					let button = document.getElementById('nameBtn');
+					button.innerHTML = 'Click Me';
+					clickCount = 0
+				}
+			}
+
+			function changeColor(){
+				const randomColor = Math.floor(Math.random()*16777215).toString(16);
+  				this.style.backgroundColor = "#" + randomColor;
+  				// color.innerHTML = "#" + randomColor;
+			}
+
+			var numRight=0;
+			var total=0;
+			function addRight() {
+				numRight++;
+				total++;
+				// let correct = document.getElementById("correct")
+				// correct.innerHTML = "Correct! Your Score Is " + numRight + "/" + total + " (" + Math.floor(numRight/total*100) + "%)";
+			}
+				
+			function addWrong() {
+				total++;
+				// let correct = document.getElementById("correct")
+				// correct.innerHTML = "Incorrect Your Score Is " + numRight + "/" + total + " (" + Math.floor(numRight/total*100) + "%)";
+			}
+			function wrong(ans){
+				let answer = document.getElementById(ans)
+				answer.classList.add("incorrect")
+				// answer.classList.add("r-fit-text")
+			}
+			function right(ans){
+				let answer = document.getElementById(ans)
+				answer.classList.add("correct")
+				// answer.classList.add("r-fit-text")
+			}
+			function show(Id) {
+				document.getElementById(Id).style.display = ''
+				document.getElementById(Id).style.visibility = ''
+			}
+			function hide(Id) {
+				document.getElementById(Id).style.display = 'none' // hides answerd question
+			}
+		</script>
+	</body>
+</html>

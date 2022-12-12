@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="TicTacToeCPU.css">
+</head>
+<body>
+    <section class="wholepage">
+        <div id="center" class="center">
+            <section class="title ">
+                <h1>Tic-Tac-Toe</h1>
+                <p id="instructions"></p>
+                <div id="playerChoiceHld" class="playerChoice">
+                    <label for="choice">Choose your mark</label>
+                    <input maxlength="1" type="text" name="choice" id="playerMark">
+                </div>
+            </section>
+            <div class=" buttonDiv flexRemove">
+                <p id="turnHolder" class="bigger"><strong class="x" id="turn"></strong> is Next</p>
+                <button id="startGame">Click To Start</button>
+            </div>
+        </div>
+        <section id="boardHld" class="">
+            <h1 id="winMessage"> WINS!</h1>
+            <h1 id="winMessageTie">TIE! TRY AGAIN!</h1>
+            <div class="boardScore">
+                <p id="scoreX" class="scoreX playerScore">Player X Score</p>
+
+                <table id="board" class="board">
+                    <tr>
+                        <td id="0" class="tile tl" value = '1'></td>
+                        <td id= 1 class="tile tm" value = '2'></td>
+                        <td id="2" class="tile tr" value = '3'></td>
+                    </tr>
+
+                    <tr>
+                        <td id="3" class="tile ml" value = '4'></td>
+                        <td id= 4 class="tile mm" value = '5'></td>
+                        <td id="5" class="tile mr" value = '6'></td>
+                    </tr>
+
+                    <tr>
+                        <td id="6" class="tile bl" value = '7'></td>
+                        <td id= 7 class="tile bm" value = '8'></td>
+                        <td id= "8" class="tile br" value = '9'></td>
+                    </tr>
+                </table>
+
+                <p class="scoreO playerScore">Player O Score <b id="scoreO"></b></p>
+            </div>
+        </section>
+        <footer>
+            <div class=" links">
+                <div class="footSocials">
+                    <a href=""><ion-icon id="fb" name="logo-facebook"></ion-icon></a>
+                    <a href=""><ion-icon id="twitter" name="logo-twitter"></ion-icon></a>
+                    <a href=""><ion-icon id="google" name="logo-google"></ion-icon></a>
+                    <a href=""><ion-icon id="ig" name="logo-instagram"></ion-icon></a>
+                </div>
+            </div>
+            <p class="signature">Copyright © 2022 by Christopher Wright. All rights reserved.</p>
+        </footer>
+    </section>
+</body>
+<script>
+let playerScore = 0 //starting score 0
+let cpuScore = 0// starting score 0
+let moves// counter for amount of moves if noone has won when moves = 9 it must be a tie
+const cpuMark = 'O'// adds class to tile when clicked
+const playerChoice = document.getElementById('playerMark')
+const playerChoiceHld = document.getElementById('playerChoiceHld')
+const playerClass = "player"
+const cpuClass = "cpu"
+const playerTile = []// stores id of tile clicked by X to check against win combos
+const cpuTile = []// stores id of tile clicked by O to check against win combos
+const wins = [ // All of the winning combos. Gets compared to playerX/OTiles for win
+	['0', '1', '2'],// top row
+	['3', '4', '5'],// middle row
+	['6', '7', '8'],//bottom row
+	['0', '3', '6'],//first collumn
+	['1', '4', '7'],//second column
+	['2', '5', '8'],//third column
+	['0', '4', '8'],//diagonal topleft middle bottomright
+	['2', '4', '6']//diagonal topright middle bottomleft
+]
+const boardHld = document.getElementById('boardHld')
+const centerStyle = document.getElementById('center')
+const winMessage = document.getElementById('winMessage') // getting win message display
+const showTie = document.getElementById('winMessageTie')
+const xScore = document.getElementById('scoreX') // getting score display
+const oScore = document.getElementById('scoreO') // getting score display
+const tiles = document.querySelectorAll('.tile') // getting all board tiles
+const restartButton = document.getElementById('startGame') // getting button
+const instructions = document.getElementById('instructions') // getting instructions display
+const turnHolder = document.getElementById('turnHolder')//getting whole turn holder
+const whoseTurn = document.getElementById('turn') // getting turn holder for letter X or O
+let isCPUTurn = false // setting to player Xs turn by setting player O turn to false
+
+window.onload = restartButton.addEventListener('click', gameStart)
+window.onload = boardHld.style.display = 'none' 
+
+function getPlayerMark(){
+    if(playerChoice.value === ''){
+        return false
+    }
+    else{
+        return true
+    }
+    
+}
+
+function gameStart(){// function to start the game applied to start button onclick
+    if(getPlayerMark()){
+        console.log(playerChoice.value)
+        playerChoiceHld.style.display = 'none'
+        centerStyle.classList.remove('center')
+         isCPUTurn = false// start with player x turn
+        turnHolder.style.display = 'block' // showing Next turn on restart
+        instructions.innerHTML = "Click Tile to place your mark <br> 3 marks in a row wins" // giving instructions after start is pressed
+        restartButton.innerHTML = "Restart Game" // change start game to restart game when button is clicked
+        cpuTile.length = 0 // clear player tiles collected from last game
+        playerTile.length = 0 // clear player tiles collected from last game
+        moves = 0 // clearing moves counter from last game
+        xScore.innerHTML = `Player ${playerChoice.value} Score ${playerScore}` //showing player x score
+        oScore.innerHTML = `${cpuScore}` //showing player o score
+        winMessage.style.transform = 'scale(0)' // hiding win message on restart
+        showTie.style.transform = 'scale(0)' // hiding tie message on restart
+        boardHld.style.display = ""
+        tiles.forEach(tile => { // removing all sclasses from last game
+            tile.innerHTML = ''
+            tile.classList.remove('disabled')
+            tile.classList.remove(cpuClass)
+            tile.classList.remove(playerClass)
+            // tile.addEventListener('click', cpuTurn)
+            tile.addEventListener('click', playerTurn, { once: true })
+            // tile.addEventListener('click', cpuTurn, { once: true })
+        })
+    
+    }
+    else{
+        alert("Choose your mark to continue!")
+        return
+    }
+}
+
+function playerTurn(){
+    let isCPUTurn = false
+    if(isCPUTurn === false){
+        this.innerHTML = playerChoice.value
+        this.classList.add(playerClass)
+        this.classList.add("disabled")
+        playerTile.push(this.id)
+        console.log(playerTile)
+        // checkWin()
+        changeTurns()
+        cpuTurn()
+    }
+}
+
+function cpuTurn(){
+    checkWin()
+    if(isCPUTurn){
+        let emptyTiles = []
+        let random;
+        tiles.forEach((tile)=> {
+            if(tile.innerHTML === "" && tile.innerHTML !== "X"){
+                emptyTiles.push(tile)
+            }
+        })
+        random = Math.ceil(Math.random() * emptyTiles.length) - 1;
+        emptyTiles[random].innerHTML = cpuMark
+        emptyTiles[random].classList.add(cpuClass)
+        emptyTiles[random].classList.add("disabled")
+        cpuTile.push(emptyTiles[random].id)
+        checkWin()
+        changeTurns()
+    }
+}
+
+function changeTurns() { 
+	isCPUTurn = !isCPUTurn 
+    
+}
+function checkWin(){ // checks win after every tile click
+    moves++ // adds move to counter 
+    for(i=0;i<wins.length;i++){ // loops through array of wins
+        let winner; // variable to hold class of whoever wins
+        // variables to hold collected tiles that are found in wins array
+        let xCollected1 = playerTile.indexOf(wins[i][0]) 
+        let xCollected2 = playerTile.indexOf(wins[i][1]) 
+        let xCollected3 = playerTile.indexOf(wins[i][2]) 
+        let oCollected1= cpuTile.indexOf(wins[i][0])
+        let oCollected2= cpuTile.indexOf(wins[i][1])
+        let oCollected3= cpuTile.indexOf(wins[i][2])
+        // variables to hold collected tiles that are found in wins array
+        
+
+        if(xCollected1 > -1 && xCollected2 > -1 && xCollected3 > -1){ //checks to see if the values of player x's collected tiles array match any of the combinations of wins exactly and if all of them are found it is a win
+            playerScore += .5 //add 1 to player x score
+            
+            winner = playerChoice.value //setting winner class as .x to tell endGame function
+            endGame(winner) //run endGame function for X
+        }
+        else if(oCollected1 > -1 && oCollected2 > -1 && oCollected3 > -1){ //checks to see if the values of player o's collected tiles array match any of the combinations of wins exactly and if all of them are found it is a win
+            cpuScore +=1 //add 1 to player o's score
+            winner = cpuMark //setting winner class as .o to tell endGame function
+            endGame(winner) //run endgame function for O
+        }
+        else if(moves === 9){ //if noone wins in 9 moves must be tie
+            endGameTie()
+        }
+    }
+}
+
+
+function endGame(winner){ // function to end game and display winner
+    tiles.forEach(tile => { // when game ends preventing from clicking more tiles
+        tile.classList.add('disabled')
+        tile.removeEventListener('click', playerTurn)
+    })
+    turnHolder.style.display = 'none' // hide turn holder
+    winMessage.style.transform = 'scale(1)' // grows win message into view
+    winMessage.innerHTML = `${winner} WINS!` // displays an X/O WINS
+    if(winner === playerChoice.value){
+        // playerScore += 1;
+        console.log(playerScore)
+        winMessage.classList.add('x')
+    }
+    else{
+        // cpuScore += 1;
+    }
+    xScore.innerHTML = `Player ${playerChoice.value} Score ${playerScore}` // displays new score 
+    oScore.innerHTML = `${cpuScore}` // displays new score
+    
+}
+function endGameTie(){ // if there is no winner display tie message
+    cpuScore += 0
+    playerScore += 0
+    turnHolder.style.display = 'none'
+    winMessage.style.transform = 'scale(1)'
+    winMessage.innerHTML = `TIE! Try again!`
+    // showTie.style.transform = 'scale(1)' // grows tie message into view
+    // // showTie.innerHTML = "Tie! Try Again."
+    xScore.innerHTML = `Player ${playerChoice.value} Score ${playerScore}` //display new score
+    oScore.innerHTML = `${cpuScore}` //display new score
+}
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</html>
